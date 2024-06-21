@@ -19,10 +19,10 @@ def run_muscle(input_sequences, muscle_exe="muscle", need_log=False):
     output_file.close()
 
     if need_log:
-        subprocess.run([muscle_exe, "-align", input_file_name, "-output", output_file_name])
+        subprocess.run([muscle_exe, "-align", input_file_name, "-output", output_file_name, "--thread", "32"])
     else:
         with open(os.devnull, 'w') as devnull:
-            subprocess.run([muscle_exe, "-align", input_file_name, "-output", output_file_name],
+            subprocess.run([muscle_exe, "-align", input_file_name, "-output", output_file_name, "--thread", "32"],
                         stdout=devnull, stderr=devnull)
 
     alignment = list(SeqIO.parse(output_file_name, "fasta"))
