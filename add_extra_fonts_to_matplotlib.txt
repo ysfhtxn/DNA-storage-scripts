@@ -1,0 +1,5 @@
+$ sudo apt install msttcorefonts -qq # install fonts
+$ rm ~/.cache/matplotlib -rf # remove cache
+
+import matplotlib as mpl # import module
+mpl.rcParams['font.family'] = ['Arial'] # set font to Arial
